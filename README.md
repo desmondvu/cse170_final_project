@@ -11,3 +11,4 @@ Generated Contents of the Code Includes:
 
  Github Page: 
   https://desmondvu.github.io/cse170_final_project/
+  *This is the website implementation of the App, some features aren't as efficient on mobile"
