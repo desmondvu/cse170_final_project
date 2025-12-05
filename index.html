@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Connect</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <button class="sidebar-toggle-float" id="sidebarToggleFloat" aria-label="Open sidebar" onclick="toggleSidebar()">
+        <svg viewBox="0 0 24 24" class="icon">
+            <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <nav class="side-nav" id="sideNav">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+            <svg viewBox="0 0 24 24" class="icon">
+                <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <div class="brand">
+            <div class="brand-mark"></div>
+            <span class="brand-name">Card Connect</span>
+        </div>
+        <button class="nav-btn">
+            <svg viewBox="0 0 24 24" class="icon">
+                <path d="M3 12l9-8 9 8v8a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-5H9v5a1 1 0 0 1-1 1H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Stores</span>
+        </button>
+        <button class="nav-btn">
+            <svg viewBox="0 0 24 24" class="icon">
+                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>Search</span>
+        </button>
+        <button class="nav-btn">
+            <svg viewBox="0 0 24 24" class="icon">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="11" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 3a4 4 0 1 1 0 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Feed</span>
+        </button>
+        <button class="nav-btn">
+            <svg viewBox="0 0 24 24" class="icon">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Messages</span>
+        </button> 
+        <button class="nav-btn">
+            <svg viewBox="0 0 24 24" class="icon">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Notifications</span>
+        </button>
+               
+        <button class="nav-btn">
+            <svg viewBox="0 0 24 24" class="icon">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="8" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="8" y1="14" x2="13" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>My Posts</span>
+        </button>
+
+        <button class="nav-btn active">
+            <svg viewBox="0 0 24 24" class="icon">
+                <path d="M12 3 3 7.5 12 12l9-4.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M3 12l9 4.5 9-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M3 16.5 12 21l9-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span>Portfolio</span>
+        </button>
+        <div class="nav-spacer"></div>
+        <button class="nav-btn">
+            <svg viewBox="0 0 24 24" class="icon">
+                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c0 .69.28 1.35.76 1.82.48.48 1.14.76 1.82.76H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Settings</span>
+        </button>
+    </nav>
+
+    <div class="page">
+        <div class="app">
+            <section class="profile-block">
+                <div class="profile-top-row">
+                    <div class="profile-main">
+                        <div class="profile-avatar"></div>
+                        <div class="profile-meta">
+                            <div class="profile-row">
+                                <div class="handle">Card_Collector123</div>
+                            </div>
+                            <div class="profile-sub">Your Card Profile</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Value</div>
+                        <div class="stat-value">$1,330</div>
+                        <div class="stat-change positive">▲ +12.5%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Cards</div>
+                        <div class="stat-value">6</div>
+                        <div class="stat-note">Last scan: Today</div>
+                    </div>
+                </div>
+
+                <div class="search-row">
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24" class="icon">
+                            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <input type="text" placeholder="Search your cards..." aria-label="Search cards">
+                    </div>
+                    <button class="icon-button" aria-label="Filter cards" onclick="popupFilter(event)">
+                        <svg viewBox="0 0 24 24" class="icon">
+                            <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="popuptext" id="myPopupFilter">Not Implemented: Filter Cards</span>
+                    </button>
+                </div>
+
+                <button class="scan-bar" aria-label="Scan new card" onclick="openCameraModal()">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Scan New Card</span>
+                </button>
+
+                <div class="pill-row"> 
+                </div>
+            </section>
+
+            <section class="collection gallery">
+                <div class="card-grid">
+                </div>
+            </section>
+        </div>
+        <button class="floating-add" aria-label="Add new" onclick="openPopupPost(event)">
+            <svg viewBox="0 0 24 24" class="icon">
+                <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span class="popuptext" id="myPopupPost">Not Implemented: Making a Post</span>
+        </button>
+    </div>
+
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalCardName"></h2>
+                <div class="modal-card-image" id="modalCardImage"></div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Set:</span>
+                        <span class="detail-value" id="modalSet"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Card Number:</span>
+                        <span class="detail-value" id="modalSetNumber"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Rarity:</span>
+                        <span class="detail-value" id="modalRarity"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Artist:</span>
+                        <span class="detail-value" id="modalArtist"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Release Date:</span>
+                        <span class="detail-value" id="modalReleaseDate"></span>
+                    </div>
+                </div>
+                <div class="modal-grade-section">
+                    <div id="modalPSABadge" class="modal-psa-badge"></div>
+                    <div class="modal-price">Market Value: <span id="modalPrice"></span></div>
+                </div>
+                <div class="modal-description">
+                    <p id="modalDescription"></p>
+                </div>
+                <div class="modal-population">
+                    <h3>PSA Population Report</h3>
+                    <div class="population-total">
+                        <span class="detail-label">Total Graded:</span>
+                        <span class="detail-value" id="modalTotalGraded"></span>
+                    </div>
+                    <div class="population-bars">
+                        <div class="population-bar-item">
+                            <span class="population-label">PSA 10</span>
+                            <div class="population-bar-container">
+                                <div class="population-bar psa-10-bar" id="bar-10"></div>
+                            </div>
+                            <span class="population-count" id="count-10"></span>
+                        </div>
+                        <div class="population-bar-item">
+                            <span class="population-label">PSA 9</span>
+                            <div class="population-bar-container">
+                                <div class="population-bar psa-9-bar" id="bar-9"></div>
+                            </div>
+                            <span class="population-count" id="count-9"></span>
+                        </div>
+                        <div class="population-bar-item">
+                            <span class="population-label">PSA 8</span>
+                            <div class="population-bar-container">
+                                <div class="population-bar psa-8-bar" id="bar-8"></div>
+                            </div>
+                            <span class="population-count" id="count-8"></span>
+                        </div>
+                        <div class="population-bar-item">
+                            <span class="population-label">PSA 7</span>
+                            <div class="population-bar-container">
+                                <div class="population-bar psa-7-bar" id="bar-7"></div>
+                            </div>
+                            <span class="population-count" id="count-7"></span>
+                        </div>
+                        <div class="population-bar-item">
+                            <span class="population-label">PSA 6 & Lower</span>
+                            <div class="population-bar-container">
+                                <div class="population-bar psa-6-bar" id="bar-6"></div>
+                            </div>
+                            <span class="population-count" id="count-6"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cameraModal" class="modal">
+        <div class="modal-content camera-modal-content">
+            <span class="close" onclick="closeCameraModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Scan New Card</h2>
+            </div>
+            <div class="modal-body">
+                <div class="camera-placeholder">
+                    <svg viewBox="0 0 24 24" class="camera-icon">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M17 7V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <p class="camera-placeholder-text">Camera will appear here</p>
+                    <p class="camera-placeholder-subtext">Position your card within the frame</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

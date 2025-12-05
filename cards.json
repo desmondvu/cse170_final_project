@@ -1,0 +1,132 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "name": "Charizard VMAX",
+      "set": "Darkness Ablaze",
+      "setNumber": "020/189",
+      "price": 134.00,
+      "psaGrade": "10",
+      "img": "https://storage.googleapis.com/images.pricecharting.com/64f2588e642c0ad10bdae653d7575a0bb63f4daaeb548312db0effb417fa0a97/240.jpg",
+      "rarity": "Promo",
+      "artist": "Shiburingaru",
+      "releaseDate": "Aug 14, 2020",
+      "description": "A Fire-type Pokémon VMAX card with incredible power.",
+      "population": {
+        "total": 5234,
+        "psa10": 2654,
+        "psa9": 1841,
+        "psa8": 542,
+        "psa7": 147,
+        "psa6Lower": 50
+      }
+    },
+    {
+      "id": 2,
+      "name": "Pikachu V",
+      "set": "Vivid Voltage",
+      "setNumber": "043/185",
+      "price": 14.89,
+      "psaGrade": "8",
+      "img": "https://storage.googleapis.com/images.pricecharting.com/c8f095b9c0db52e1c59cb92fa3a935923afb4002501b8add464c64ecfc426179/240.jpg",
+      "rarity": "Ultra Rare",
+      "artist": "Saki Hayashiro",
+      "releaseDate": "Nov 13, 2020",
+      "description": "An Electric-type Pokémon V card with lightning-fast attacks.",
+      "population": {
+        "total": 8123,
+        "psa10": 4123,
+        "psa9": 2841,
+        "psa8": 892,
+        "psa7": 207,
+        "psa6Lower": 60
+      }
+    },
+    {
+      "id": 3,
+      "name": "Mewtwo GX",
+      "set": "Shining Legends",
+      "setNumber": "072/073",
+      "price": 744.18,
+      "psaGrade": "9",
+      "img": "https://storage.googleapis.com/images.pricecharting.com/6a3a3049d7581de2eb2ffe69d6edf2d5431a0799d344a0adb1ff0679f81db400/240.jpg",
+      "rarity": "Shiny Holo Rare",
+      "artist": "Mitsuhiru Arita",
+      "releaseDate": "Oct 6, 2017",
+      "description": "A Psychic-type Pokémon GX card with incredible powers.",
+      "population": {
+        "total": 7234,
+        "psa10": 3654,
+        "psa9": 2341,
+        "psa8": 892,
+        "psa7": 247,
+        "psa6Lower": 100
+      }
+    },
+    {
+      "id": 4,
+      "name": "Umbreon VMAX",
+      "set": "Evolving Skies",
+      "setNumber": "215/203",
+      "price": 3003.00,
+      "psaGrade": "10",
+      "img": "https://storage.googleapis.com/images.pricecharting.com/si2fk63oegktnvha/240.jpg",
+      "rarity": "Secret Rare",
+      "artist": "Keiichiro Ito",
+      "releaseDate": "Aug 27, 2021",
+      "description": "A Dark-type Pokémon VMAX card with mysterious abilities.",
+      "population": {
+        "total": 3456,
+        "psa10": 1234,
+        "psa9": 1456,
+        "psa8": 567,
+        "psa7": 143,
+        "psa6Lower": 56
+      }
+    },
+    {
+      "id": 5,
+      "name": "Rayquaza VMAX",
+      "set": "Evolving Skies",
+      "setNumber": "218/203",
+      "price": 650.00,
+      "psaGrade": "Ungraded",
+      "img": "https://storage.googleapis.com/images.pricecharting.com/4b81f53c1a4b5332adba6899ab472a3c3880f7c3ec9be800a1ca71edc980c5b9/240.jpg",
+      "rarity": "Secret Rare",
+      "artist": "Anesaki Dynamic",
+      "releaseDate": "Aug 27, 2021",
+      "description": "A Dragon-type Pokémon VMAX card with sky-splitting power.",
+      "population": {
+        "total": 4567,
+        "psa10": 2134,
+        "psa9": 1678,
+        "psa8": 523,
+        "psa7": 182,
+        "psa6Lower": 50
+      }
+    },
+    {
+      "id": 6,
+      "name": "Glaceon VMAX",
+      "set": "Evolving Skies",
+      "setNumber": "209/203",
+      "price": 182.00,
+      "psaGrade": "7",
+      "img": "https://storage.googleapis.com/images.pricecharting.com/53460370acae70333e449d6457eab6f939177a62f1f350e493689752855197d8/240.jpg",
+      "rarity": "Secret Rare",
+      "artist": "kirisAki",
+      "releaseDate": "Aug 27, 2021",
+      "description": "An Ice-type Pokémon VMAX card with freezing attacks.",
+      "population": {
+        "total": 3890,
+        "psa10": 1876,
+        "psa9": 1234,
+        "psa8": 567,
+        "psa7": 178,
+        "psa6Lower": 35
+      }
+    }
+  ]
+}
+
+
