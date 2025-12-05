@@ -7,6 +7,7 @@ Generated Contents of the Code Includes:
  - For the population bars, implement them and make it so the percentages match the width.
  - Make the sidebar collaspable. Used for when media is below 769.
  - Overall usage on CSS elements like padding and animations.
+ - Fix the sidebar implementation on tap javascript.
 
  Github Page: 
   https://desmondvu.github.io/cse170_final_project/

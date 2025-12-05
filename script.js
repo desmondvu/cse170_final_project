@@ -403,27 +403,46 @@ function toggleSidebar() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarToggleFloat = document.getElementById('sidebarToggleFloat');
+    
+    // Handle toggle button clicks with higher priority
     if (sidebarToggle) {
         sidebarToggle.addEventListener('click', function(event) {
             event.stopPropagation();
             toggleSidebar();
-        });
+        }, true); // Use capture phase
+    }
+    
+    if (sidebarToggleFloat) {
+        sidebarToggleFloat.addEventListener('click', function(event) {
+            event.stopPropagation();
+            toggleSidebar();
+        }, true); // Use capture phase
     }
 
-    if (window.innerWidth <= 769) {
-        document.addEventListener('click', function(event) {
+    // Close sidebar when clicking outside (only on mobile)
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 769) {
             const sideNav = document.getElementById('sideNav');
             const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarToggleFloat = document.getElementById('sidebarToggleFloat');
             const body = document.body;
             
+            // Don't process if clicking on toggle buttons
+            if ((sidebarToggle && sidebarToggle.contains(event.target)) ||
+                (sidebarToggleFloat && sidebarToggleFloat.contains(event.target))) {
+                return;
+            }
+            
             if (sideNav && sideNav.classList.contains('collapsed')) {
-                if (!sideNav.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                // Check if click is outside sidebar
+                if (!sideNav.contains(event.target)) {
                     sideNav.classList.remove('collapsed');
                     body.classList.remove('sidebar-open');
                 }
             }
-        });
-    }
+        }
+    });
 
     window.addEventListener('resize', function() {
         const sideNav = document.getElementById('sideNav');

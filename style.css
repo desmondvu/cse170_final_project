@@ -671,10 +671,27 @@ body {
 
     .page {
         padding-left: 16px !important;
+        padding-right: 16px !important;
+        overflow-x: hidden;
     }
     
     body {
         padding-left: 16px;
+        padding-right: 16px;
+        overflow-x: hidden;
+    }
+    
+    .profile-block {
+        padding: 20px 16px 12px;
+        overflow-x: visible;
+    }
+    
+    .profile-top-row {
+        flex-wrap: wrap;
+    }
+    
+    .app {
+        overflow-x: hidden;
     }
 
     .side-nav .brand-name,
