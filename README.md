@@ -9,3 +9,4 @@ Generated Contents of the Code Includes:
  - Overall usage on CSS elements like padding and animations.
 
  Github Page: 
+  https://desmondvu.github.io/cse170_final_project/
