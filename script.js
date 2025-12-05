@@ -238,6 +238,27 @@ document.addEventListener('click', function(event) {
     }
 });
 
+function openPopupManageCards(event) {
+    if (event) {
+        event.stopPropagation();
+    }
+    var popupManageCards = document.getElementById("myPopupManageCards");
+    if (popupManageCards) {
+        popupManageCards.classList.toggle("show");
+    }
+}
+
+document.addEventListener('click', function(event) {
+    var popupManageCards = document.getElementById("myPopupManageCards");
+    var manageCardsButton = document.querySelector('.action-btn[aria-label="Manage cards"]');
+    
+    if (popupManageCards && popupManageCards.classList.contains('show')) {
+        if (manageCardsButton && !manageCardsButton.contains(event.target) && !popupManageCards.contains(event.target)) {
+            popupManageCards.classList.remove("show");
+        }
+    }
+});
+
 function openCardModal(card) {
     const modal = document.getElementById('cardModal');
     if (!modal) return;

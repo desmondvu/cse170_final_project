@@ -136,7 +136,9 @@ body {
 }
 
 .side-nav .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(35, 54, 66, 0.15);
 }
 
 .side-nav .nav-btn.active {
@@ -144,6 +146,11 @@ body {
     color: #fff;
     transform: translateX(2px);
     font-weight: 700;
+}
+.side-nav .nav-btn.active:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(35, 54, 66, 0.15);
 }
 
 .app {
@@ -376,6 +383,7 @@ body {
 }
 
 .action-btn {
+    position: relative;
     border: none;
     background: linear-gradient(135deg, #2c6f6a, #6f4986);
     color: #fff;
@@ -387,7 +395,8 @@ body {
 }
 
 .action-btn:hover {
-    background: #235b5c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .action-btn.ghost {
@@ -704,7 +713,7 @@ body {
   
 .popuptext {
     visibility: hidden;
-    width: 180px;
+    width: 200px;
     background-color: var(--accent);
     color: #fff;
     text-align: center;
@@ -712,36 +721,54 @@ body {
     padding: 10px 12px;
     position: absolute;
     z-index: 1000;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -90px;
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 16px;
     font-weight: 600;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     pointer-events: none;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .floating-add .popuptext {
-    bottom: 125%;
-    left: 50%;
-    margin-left: -90px;
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    left: auto;
+    bottom: auto;
+    margin-left: 0;
 }
 
 .icon-button .popuptext {
-    bottom: 125%;
-    left: 50%;
-    margin-left: -90px;
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    left: auto;
+    bottom: auto;
+    margin-left: 0;
+}
+
+.action-btn .popuptext {
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    left: auto;
+    bottom: auto;
+    margin-left: 0;
 }
   
 .popuptext::after {
     content: "";
     position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
     border-width: 5px;
     border-style: solid;
-    border-color: var(--accent) transparent transparent transparent;
+    border-color: transparent transparent transparent var(--accent);
 }
   
 .popuptext.show {
