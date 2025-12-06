@@ -196,26 +196,20 @@ function updateSummary(cards) {
     }
 }
 
-function openPopupPost(event) {
-    if (event) {
-        event.stopPropagation();
-    }
-    var popupPost = document.getElementById("myPopupPost");
-    if (popupPost) {
-        popupPost.classList.toggle("show");
+function openPostModal() {
+    const modal = document.getElementById('postModal');
+    if (modal) {
+        modal.style.display = 'flex';
     }
 }
 
-document.addEventListener('click', function(event) {
-    var popupPost = document.getElementById("myPopupPost");
-    var floatingAdd = document.querySelector('.floating-add');
-    
-    if (popupPost && popupPost.classList.contains('show')) {
-        if (floatingAdd && !floatingAdd.contains(event.target) && !popupPost.contains(event.target)) {
-            popupPost.classList.remove("show");
-        }
+function closePostModal() {
+    const modal = document.getElementById('postModal');
+    if (modal) {
+        modal.style.display = 'none';
     }
-});
+}
+
 
 function popupFilter(event) {
     if (event) {
@@ -238,26 +232,130 @@ document.addEventListener('click', function(event) {
     }
 });
 
-function openPopupManageCards(event) {
-    if (event) {
-        event.stopPropagation();
-    }
-    var popupManageCards = document.getElementById("myPopupManageCards");
-    if (popupManageCards) {
-        popupManageCards.classList.toggle("show");
+function openManageCardsModal() {
+    const modal = document.getElementById('manageCardsModal');
+    if (!modal) return;
+    
+    renderManageCardsList();
+    modal.style.display = 'flex';
+}
+
+function closeManageCardsModal() {
+    const modal = document.getElementById('manageCardsModal');
+    if (modal) {
+        modal.style.display = 'none';
     }
 }
 
-document.addEventListener('click', function(event) {
-    var popupManageCards = document.getElementById("myPopupManageCards");
-    var manageCardsButton = document.querySelector('.action-btn[aria-label="Manage cards"]');
+function renderManageCardsList() {
+    const manageCardsList = document.getElementById('manageCardsList');
+    if (!manageCardsList) return;
     
-    if (popupManageCards && popupManageCards.classList.contains('show')) {
-        if (manageCardsButton && !manageCardsButton.contains(event.target) && !popupManageCards.contains(event.target)) {
-            popupManageCards.classList.remove("show");
-        }
+    manageCardsList.innerHTML = '';
+    
+    if (allCards.length === 0) {
+        manageCardsList.innerHTML = '<p style="text-align: center; color: var(--muted); padding: 20px;">No cards in your portfolio</p>';
+        return;
     }
-});
+    
+    allCards.forEach((card, index) => {
+        const cardItem = document.createElement('div');
+        cardItem.className = 'manage-card-item';
+        cardItem.style.cssText = `
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(35, 54, 66, 0.08);
+        `;
+        
+        const cardInfo = document.createElement('div');
+        cardInfo.style.cssText = 'flex: 1; display: flex; align-items: center; gap: 16px;';
+        
+        const cardImage = document.createElement('div');
+        cardImage.style.cssText = `
+            width: 80px;
+            height: 112px;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f0f0f0;
+            flex-shrink: 0;
+        `;
+        if (card.img) {
+            cardImage.style.backgroundImage = `url('${card.img}')`;
+        }
+        
+        const cardDetails = document.createElement('div');
+        cardDetails.style.cssText = 'flex: 1;';
+        
+        const cardName = document.createElement('div');
+        cardName.textContent = card.name;
+        cardName.style.cssText = 'font-weight: 700; font-size: 18px; margin-bottom: 4px; color: var(--text);';
+        
+        const cardSet = document.createElement('div');
+        cardSet.textContent = `${card.set} • ${card.setNumber}`;
+        cardSet.style.cssText = 'color: var(--muted); font-size: 14px; margin-bottom: 4px;';
+        
+        const cardPrice = document.createElement('div');
+        cardPrice.textContent = `$${card.price.toFixed(2)}`;
+        cardPrice.style.cssText = 'font-weight: 600; color: var(--accent); font-size: 16px;';
+        
+        cardDetails.appendChild(cardName);
+        cardDetails.appendChild(cardSet);
+        cardDetails.appendChild(cardPrice);
+        
+        cardInfo.appendChild(cardImage);
+        cardInfo.appendChild(cardDetails);
+        
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.style.cssText = `
+            padding: 10px 20px;
+            background: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        `;
+        deleteButton.addEventListener('mouseenter', function() {
+            this.style.background = '#c82333';
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 4px 12px rgba(220, 53, 69, 0.3)';
+        });
+        deleteButton.addEventListener('mouseleave', function() {
+            this.style.background = '#dc3545';
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
+        deleteButton.addEventListener('click', () => deleteCard(card.id));
+        
+        cardItem.appendChild(cardInfo);
+        cardItem.appendChild(deleteButton);
+        manageCardsList.appendChild(cardItem);
+    });
+}
+
+function deleteCard(cardId) {
+    if (confirm('Are you sure you want to delete this card from your portfolio?')) {
+        allCards = allCards.filter(card => card.id !== cardId);
+        
+        // Don't save to localStorage - cards will reset on refresh for prototype
+        generatePills(allCards);
+        renderCards(allCards);
+        updateSummary(allCards);
+        renderManageCardsList();
+    }
+}
+
 
 function openCardModal(card) {
     const modal = document.getElementById('cardModal');
@@ -345,7 +443,7 @@ function closeCardModal() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('cardModal');
-    const closeBtn = document.querySelector('.close');
+    const closeBtn = modal ? modal.querySelector('.close') : null;
     
     if (closeBtn) {
         closeBtn.addEventListener('click', closeCardModal);
@@ -355,6 +453,32 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('click', function(event) {
             if (event.target === modal) {
                 closeCardModal();
+            }
+        });
+    }
+    
+    const postModal = document.getElementById('postModal');
+    if (postModal) {
+        const postCloseBtn = postModal.querySelector('.close');
+        if (postCloseBtn) {
+            postCloseBtn.addEventListener('click', closePostModal);
+        }
+        window.addEventListener('click', function(event) {
+            if (event.target === postModal) {
+                closePostModal();
+            }
+        });
+    }
+    
+    const manageCardsModal = document.getElementById('manageCardsModal');
+    if (manageCardsModal) {
+        const manageCloseBtn = manageCardsModal.querySelector('.close');
+        if (manageCloseBtn) {
+            manageCloseBtn.addEventListener('click', closeManageCardsModal);
+        }
+        window.addEventListener('click', function(event) {
+            if (event.target === manageCardsModal) {
+                closeManageCardsModal();
             }
         });
     }
@@ -405,22 +529,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebarToggle = document.getElementById('sidebarToggle');
     const sidebarToggleFloat = document.getElementById('sidebarToggleFloat');
     
-    // Handle toggle button clicks with higher priority
     if (sidebarToggle) {
         sidebarToggle.addEventListener('click', function(event) {
             event.stopPropagation();
             toggleSidebar();
-        }, true); // Use capture phase
+        }, true)
     }
     
     if (sidebarToggleFloat) {
         sidebarToggleFloat.addEventListener('click', function(event) {
             event.stopPropagation();
             toggleSidebar();
-        }, true); // Use capture phase
+        }, true);
     }
 
-    // Close sidebar when clicking outside (only on mobile)
     document.addEventListener('click', function(event) {
         if (window.innerWidth <= 769) {
             const sideNav = document.getElementById('sideNav');
@@ -428,14 +550,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const sidebarToggleFloat = document.getElementById('sidebarToggleFloat');
             const body = document.body;
             
-            // Don't process if clicking on toggle buttons
             if ((sidebarToggle && sidebarToggle.contains(event.target)) ||
                 (sidebarToggleFloat && sidebarToggleFloat.contains(event.target))) {
                 return;
             }
             
             if (sideNav && sideNav.classList.contains('collapsed')) {
-                // Check if click is outside sidebar
                 if (!sideNav.contains(event.target)) {
                     sideNav.classList.remove('collapsed');
                     body.classList.remove('sidebar-open');

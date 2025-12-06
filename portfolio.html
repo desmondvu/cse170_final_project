@@ -102,9 +102,7 @@
                             <div class="profile-sub">Your Card Profile</div>
                         </div>
                     </div>
-                    <button class="action-btn" aria-label="Manage cards" onclick="openPopupManageCards(event)">Manage Cards
-                        <span class="popuptext" id="myPopupManageCards">Not Implemented: Manage Cards</span>
-                    </button>
+                    <button class="action-btn" aria-label="Manage cards" onclick="openManageCardsModal()">Manage Cards</button>
                 </div>
 
                 <div class="stat-cards">
@@ -148,12 +146,11 @@
                 </div>
             </section>
         </div>
-        <button class="floating-add" aria-label="Add new" onclick="openPopupPost(event)">
+        <button class="floating-add" aria-label="Add new" onclick="openPostModal()">
             <svg viewBox="0 0 24 24" class="icon">
                 <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
                 <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             </svg>
-            <span class="popuptext" id="myPopupPost">Not Implemented: Making a Post</span>
         </button>
     </div>
 
@@ -256,6 +253,30 @@
                     </svg>
                     <p class="camera-placeholder-text">Camera will appear here</p>
                     <p class="camera-placeholder-subtext">Position your card within the frame</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="postModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePostModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Create New Post</h2>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+
+    <div id="manageCardsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeManageCardsModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Manage Your Cards</h2>
+            </div>
+            <div class="modal-body">
+                <div id="manageCardsList" class="manage-cards-list">
                 </div>
             </div>
         </div>

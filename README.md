@@ -8,6 +8,7 @@ Generated Contents of the Code Includes:
  - Make the sidebar collaspable. Used for when media is below 769.
  - Overall usage on CSS elements like padding and animations.
  - Fix the sidebar implementation on tap javascript.
+ - Help debug my code which deletes the card from the portfolio.
 
  Github Page: 
   https://desmondvu.github.io/cse170_final_project/
